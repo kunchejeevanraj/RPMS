@@ -1,0 +1,31 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: PROPERTY-SERVICE   # 🔥 Must match the Gateway route
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rpms
+    username: postgres
+    password: myPOSTpass
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    hostname: localhost
